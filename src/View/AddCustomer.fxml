@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="800.0" style="-fx-background-color: #98B4D4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddCustomer">
+   <children>
+      <Label layoutX="53.0" layoutY="53.0" text="Customer ID">
+         <effect>
+            <SepiaTone />
+         </effect>
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="53.0" layoutY="90.0" text="Customer Name">
+         <effect>
+            <SepiaTone />
+         </effect>
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="53.0" layoutY="128.0" text="Address">
+         <effect>
+            <SepiaTone />
+         </effect>
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="53.0" layoutY="163.0" text="Zip Code">
+         <effect>
+            <SepiaTone />
+         </effect>
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="51.0" layoutY="197.0" text="Phone Number">
+         <effect>
+            <SepiaTone />
+         </effect>
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="51.0" layoutY="239.0" text="Country">
+         <effect>
+            <SepiaTone />
+         </effect>
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <TextField editable="false" layoutX="168.0" layoutY="49.0" prefHeight="25.0" prefWidth="183.0">
+         <effect>
+            <SepiaTone />
+         </effect>
+      </TextField>
+      <TextField layoutX="168.0" layoutY="85.0" prefHeight="25.0" prefWidth="183.0">
+         <effect>
+            <SepiaTone />
+         </effect>
+      </TextField>
+      <TextField layoutX="168.0" layoutY="121.0" prefHeight="25.0" prefWidth="183.0">
+         <effect>
+            <SepiaTone />
+         </effect>
+      </TextField>
+      <TextField layoutX="168.0" layoutY="156.0" prefHeight="25.0" prefWidth="183.0">
+         <effect>
+            <SepiaTone />
+         </effect>
+      </TextField>
+      <TextField layoutX="168.0" layoutY="192.0" prefHeight="25.0" prefWidth="183.0">
+         <effect>
+            <SepiaTone />
+         </effect>
+      </TextField>
+      <ChoiceBox layoutX="168.0" layoutY="235.0" prefHeight="25.0" prefWidth="183.0">
+         <effect>
+            <SepiaTone />
+         </effect>
+      </ChoiceBox>
+      <Label layoutX="51.0" layoutY="279.0" text="Region">
+         <effect>
+            <SepiaTone />
+         </effect>
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <ChoiceBox layoutX="168.0" layoutY="275.0" prefHeight="25.0" prefWidth="183.0">
+         <effect>
+            <SepiaTone />
+         </effect>
+      </ChoiceBox>
+      <Button layoutX="71.0" layoutY="347.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Save">
+         <effect>
+            <SepiaTone />
+         </effect>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="221.0" layoutY="347.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="103.0" text="Cancel">
+         <effect>
+            <SepiaTone />
+         </effect>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #98B4D4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Login">
+   <children>
+      <Label layoutX="90.0" layoutY="49.0" text="Username">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+         <effect>
+            <SepiaTone />
+         </effect></Label>
+      <Label layoutX="90.0" layoutY="94.0" text="Password">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+         <effect>
+            <SepiaTone />
+         </effect></Label>
+      <TextField layoutX="164.0" layoutY="45.0">
+         <effect>
+            <SepiaTone />
+         </effect></TextField>
+      <Button layoutX="164.0" layoutY="139.0" mnemonicParsing="false" text="Login">
+         <effect>
+            <SepiaTone />
+         </effect>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="340.0" layoutY="223.0" mnemonicParsing="false" text="Button">
+         <effect>
+            <SepiaTone />
+         </effect>
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Button>
+      <Label layoutX="42.0" layoutY="314.0" text="Language">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+         <effect>
+            <SepiaTone />
+         </effect></Label>
+      <ChoiceBox layoutX="116.0" layoutY="310.0" prefWidth="150.0">
+         <effect>
+            <SepiaTone />
+         </effect></ChoiceBox>
+      <ComboBox layoutX="340.0" layoutY="285.0" prefWidth="150.0" visibleRowCount="2">
+         <effect>
+            <SepiaTone />
+         </effect></ComboBox>
+      <Label layoutX="352.0" layoutY="323.0" text="Time Zone">
+         <effect>
+            <SepiaTone />
+         </effect></Label>
+      <Label layoutX="433.0" layoutY="323.0" text="Time Zone">
+         <effect>
+            <SepiaTone />
+         </effect></Label>
+      <PasswordField layoutX="164.0" layoutY="90.0">
+         <effect>
+            <SepiaTone />
+         </effect>
+      </PasswordField>
+   </children>
+</AnchorPane>

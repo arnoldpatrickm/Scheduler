@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #98B4D4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Appointments">
+   <children>
+      <TableView layoutX="14.0" layoutY="103.0" prefHeight="554.0" prefWidth="1169.0">
+        <columns>
+          <TableColumn prefWidth="69.0" text="Appt ID" />
+          <TableColumn minWidth="0.0" prefWidth="182.0" text="Title" />
+            <TableColumn prefWidth="101.0" text="Description" />
+            <TableColumn minWidth="8.0" prefWidth="135.0" text="Location" />
+            <TableColumn prefWidth="95.0" text="Type" />
+            <TableColumn prefWidth="102.0" text="Start Time" />
+            <TableColumn prefWidth="94.0" text="End Time" />
+            <TableColumn prefWidth="88.0" text="Start Date" />
+            <TableColumn prefWidth="103.0" text="End Date" />
+            <TableColumn prefWidth="104.0" text="Customer ID" />
+            <TableColumn prefWidth="95.0" text="User ID" />
+        </columns>
+         <effect>
+            <SepiaTone level="0.42" />
+         </effect>
+      </TableView>
+      <Button layoutX="74.0" layoutY="700.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #FFEEBE; -fx-background-color: #FFFED1;" text="Reports">
+         <effect>
+            <SepiaTone />
+         </effect>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="274.0" layoutY="700.0" mnemonicParsing="false" style="-fx-background-color: #FFEEBE; -fx-background-color: #FFFED1;" text="Add Appointment">
+         <effect>
+            <SepiaTone />
+         </effect>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="495.0" layoutY="700.0" mnemonicParsing="false" style="-fx-background-color: #FFEEBE; -fx-background-color: #FFFED1;" text="Modify Appointment">
+         <effect>
+            <SepiaTone />
+         </effect>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="711.0" layoutY="700.0" mnemonicParsing="false" style="-fx-background-color: #FFEEBE; -fx-background-color: #FFFED1;" text="Delete Appointment">
+         <effect>
+            <SepiaTone />
+         </effect>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="1094.0" layoutY="732.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="76.0" style="-fx-background-color: #FFEEBE; -fx-background-color: #FFFED1;" text="Logout">
+         <effect>
+            <SepiaTone />
+         </effect>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <RadioButton layoutX="99.0" layoutY="41.0" mnemonicParsing="false" selected="true" text="Appointments">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <effect>
+            <SepiaTone />
+         </effect>
+         <toggleGroup>
+            <ToggleGroup fx:id="ViewChoice" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton layoutX="207.0" layoutY="41.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="90.0" text="Customers" toggleGroup="$ViewChoice">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <effect>
+            <SepiaTone />
+         </effect>
+      </RadioButton>
+      <Label layoutX="7.0" layoutY="41.0" text="View Selection:">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+         <effect>
+            <SepiaTone />
+         </effect>
+      </Label>
+   </children>
+</AnchorPane>
