@@ -1,6 +1,7 @@
 package Main;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -13,6 +14,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/View/Appointments.fxml"));
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 1200, 800));
+        primaryStage.onCloseRequestProperty().setValue(e -> Platform.exit());
         primaryStage.show();
     }
 

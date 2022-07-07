@@ -25,14 +25,14 @@
             <SepiaTone level="0.42" />
          </effect>
       </TableView>
-      <Button layoutX="74.0" layoutY="700.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #FFEEBE; -fx-background-color: #FFFED1;" text="Reports">
+      <Button layoutX="74.0" layoutY="700.0" mnemonicParsing="false" onAction="#toReports" prefHeight="25.0" prefWidth="112.0" style="-fx-background-color: #FFEEBE; -fx-background-color: #FFFED1;" text="Reports">
          <effect>
             <SepiaTone />
          </effect>
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Button layoutX="274.0" layoutY="700.0" mnemonicParsing="false" style="-fx-background-color: #FFEEBE; -fx-background-color: #FFFED1;" text="Add Appointment">
+      <Button fx:id="AddButton" layoutX="274.0" layoutY="700.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onClickAddButton" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #FFEEBE; -fx-background-color: #FFFED1;" text="Add Appointment">
          <effect>
             <SepiaTone />
          </effect>
@@ -40,7 +40,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="495.0" layoutY="700.0" mnemonicParsing="false" style="-fx-background-color: #FFEEBE; -fx-background-color: #FFFED1;" text="Modify Appointment">
+      <Button fx:id="ModifyButton" layoutX="495.0" layoutY="700.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onClickModifyButton" prefHeight="25.0" prefWidth="143.0" style="-fx-background-color: #FFEEBE; -fx-background-color: #FFFED1;" text="Modify Appointment">
          <effect>
             <SepiaTone />
          </effect>
@@ -48,7 +48,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="711.0" layoutY="700.0" mnemonicParsing="false" style="-fx-background-color: #FFEEBE; -fx-background-color: #FFFED1;" text="Delete Appointment">
+      <Button fx:id="DeleteButton" layoutX="711.0" layoutY="700.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onClickDeleteButton" prefHeight="25.0" prefWidth="143.0" style="-fx-background-color: #FFEEBE; -fx-background-color: #FFFED1;" text="Delete Appointment">
          <effect>
             <SepiaTone />
          </effect>
@@ -64,7 +64,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <RadioButton layoutX="99.0" layoutY="41.0" mnemonicParsing="false" selected="true" text="Appointments">
+      <RadioButton fx:id="AppointmentsRadio" layoutX="99.0" layoutY="41.0" mnemonicParsing="false" onAction="#onClickAppointmentsRadio" selected="true" text="Appointments">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -75,7 +75,7 @@
             <ToggleGroup fx:id="ViewChoice" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="207.0" layoutY="41.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="90.0" text="Customers" toggleGroup="$ViewChoice">
+      <RadioButton fx:id="CustomerRadio" layoutX="207.0" layoutY="41.0" mnemonicParsing="false" onAction="#onClickCustomerRadio" prefHeight="17.0" prefWidth="90.0" text="Customers" toggleGroup="$ViewChoice">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

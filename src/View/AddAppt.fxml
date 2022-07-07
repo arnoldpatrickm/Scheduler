@@ -176,7 +176,7 @@
             <SepiaTone />
          </effect>
       </ChoiceBox>
-      <Button layoutX="393.0" layoutY="531.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" text="Cancel">
+      <Button fx:id="cancelButton" layoutX="393.0" layoutY="531.0" mnemonicParsing="false" onAction="#onClickCancelButton" prefHeight="25.0" prefWidth="106.0" text="Cancel">
          <effect>
             <SepiaTone />
          </effect>
