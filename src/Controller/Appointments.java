@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 
@@ -17,9 +18,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Appointments implements Initializable {
-    public Button AddButton;
-    public Button ModifyButton;
-    public Button DeleteButton;
+    @FXML
+    private Button AddButton;
+    @FXML
+    private Button ModifyButton;
+    @FXML
+    private Button DeleteButton;
+    @FXML
+    private TableView appointmentsView;
     @FXML
     private RadioButton CustomerRadio;
     @FXML
@@ -29,6 +35,7 @@ public class Appointments implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        appointmentsView.setItems();
     }
     public void onClickAppointmentsRadio() {
         AddButton.setText("Add Appointment");

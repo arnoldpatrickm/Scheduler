@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #98B4D4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Appointments">
    <children>
-      <TableView layoutX="14.0" layoutY="103.0" prefHeight="554.0" prefWidth="1169.0">
+      <TableView fx:id="appointmentsView" layoutX="14.0" layoutY="103.0" prefHeight="554.0" prefWidth="1169.0">
         <columns>
           <TableColumn prefWidth="69.0" text="Appt ID" />
           <TableColumn minWidth="0.0" prefWidth="182.0" text="Title" />

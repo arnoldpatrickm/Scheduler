@@ -1,12 +1,15 @@
 package Main;
 
 import Helper.JDBC;
+import Helper.SQLHelpers;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.sql.SQLException;
 
 public class Main extends Application {
     @Override
@@ -20,9 +23,13 @@ public class Main extends Application {
 
 
 
-    public static void main(String[] args) {
-//        launch(args);
+    public static void main(String[] args) throws SQLException {
+
         JDBC.openConnection();
+        //********Important*********JavaFX Specific********From JDBC Webinar***********
+        //openConnection() goes before launch. When it reaches launch(args) it pauses and does not continue to closeConnection() until the application is closed.
+        SQLHelpers.showAppointments();
+        launch(args);
         JDBC.closeConnection();
     }
 }
