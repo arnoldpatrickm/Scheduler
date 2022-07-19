@@ -98,7 +98,7 @@
             <SepiaTone />
          </effect>
       </ChoiceBox>
-      <Button layoutX="71.0" layoutY="347.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Save">
+      <Button fx:id="saveButton" layoutX="71.0" layoutY="347.0" mnemonicParsing="false" onAction="#onClickSaveButton" prefHeight="25.0" prefWidth="103.0" text="Save">
          <effect>
             <SepiaTone />
          </effect>

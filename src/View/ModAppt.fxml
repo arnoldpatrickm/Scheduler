@@ -14,7 +14,7 @@
             <effect>
                 <SepiaTone />
             </effect></Label>
-        <Button layoutX="166.0" layoutY="531.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" text="Save">
+        <Button fx:id="saveButton" layoutX="166.0" layoutY="531.0" mnemonicParsing="false" onAction="#onClickSaveButton" prefHeight="25.0" prefWidth="106.0" text="Save">
             <effect>
                 <SepiaTone />
             </effect>
@@ -176,7 +176,7 @@
                 <SepiaTone />
             </effect>
         </ChoiceBox>
-      <Button layoutX="401.0" layoutY="531.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" text="Cancel">
+      <Button fx:id="cancelButton" layoutX="401.0" layoutY="531.0" mnemonicParsing="false" onAction="#onClickCancelButton" prefHeight="25.0" prefWidth="106.0" text="Cancel">
          <effect>
             <SepiaTone />
          </effect>

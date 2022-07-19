@@ -38,7 +38,23 @@ public class AppointmentAccess {
         return appData;
     }
 
-    public static boolean deleteAppointment(Appointment appointment) throws SQLException {
+    public static void addAppointment() {
+
+        try {
+            System.out.println("****Attempting to add new appointment****");
+            PreparedStatement st = JDBC.connection.prepareStatement(
+                            "INSERT INTO appointments (Title, Description, Location, Type, Start, End, Create_Date, Created_By, Last_Update, Customer_ID, User_ID, Contact_ID)" +
+                                    ("VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"));
+//            st.setInt(1, appID);
+            st.executeUpdate();
+
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            System.out.println("****Add Failed****");
+        }
+    }
+    public static boolean deleteAppointment(Appointment appointment) {
         int appID = appointment.getAppointmentID();
         try {
             System.out.println("****Attempting to delete appointment with ID of " + appID + " ****");

@@ -1,5 +1,6 @@
 package Controller;
 
+import Helper.WindowMethods;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -8,7 +9,9 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AddCustomer implements Initializable {
+public class AddCustomer implements Initializable{
+    @FXML
+    private Button saveButton;
     @FXML
     private Button cancelButton;
 
@@ -18,8 +21,11 @@ public class AddCustomer implements Initializable {
     }
     @FXML
     private void onClickCancelButton(){
-        Stage stage = (Stage) cancelButton.getScene().getWindow();
-        stage.close();
+        WindowMethods.closeWindow(cancelButton);
+    }
+    @FXML
+    private void onClickSaveButton() {
+        WindowMethods.closeWindow(saveButton);
     }
 
 

@@ -2,9 +2,9 @@ package Controller;
 
 import DAO.AppointmentAccess;
 import DAO.CustomerAccess;
+import Helper.WindowMethods;
 import Model.Appointment;
 import Model.Customer;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,7 +12,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.net.URL;
 import java.sql.SQLException;
@@ -35,6 +34,14 @@ public class Appointments implements Initializable {
     private RadioButton AppointmentsRadio;
     @FXML
     private ToggleGroup ViewChoice;
+
+    final String addFXML = "Add";
+    final String modFXML = "Mod";
+    final String customerFXML = "Customer.fxml";
+    final String apptFXML = "Appt.fxml";
+    final String loginFXML = "Login.fxml";
+    final String appointmentsFXML = "Appointments.fxml";
+    final String reportsFXML = "Reports.fxml";
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -110,8 +117,8 @@ public class Appointments implements Initializable {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        refreshAppSelection();
-        refreshCustSelection();
+//        refreshAppSelection();
+//        refreshCustSelection();
     }
 
     public void refreshAppSelection(){
@@ -120,7 +127,7 @@ public class Appointments implements Initializable {
     public void refreshCustSelection(){
         customerTable.getSelectionModel().select(0);
     }
-    public void onClickAppointmentsRadio() throws SQLException {
+    public void onClickAppointmentsRadio() {
         AddButton.setText("Add Appointment");
         ModifyButton.setText("Modify Appointment");
         DeleteButton.setText("Delete Appointment");
@@ -142,7 +149,7 @@ public class Appointments implements Initializable {
         customerTable.disableProperty().setValue(false);
     }
 
-    public void toReports(ActionEvent event) throws Exception {
+    public void toReports() throws Exception {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Reports.fxml"));
                 Parent root1 = (Parent) fxmlLoader.load();
@@ -155,73 +162,33 @@ public class Appointments implements Initializable {
             }
     }
 
-    public void onClickAddButton(ActionEvent actionEvent) {
-    if (ViewChoice.getSelectedToggle() == AppointmentsRadio && appTable.getSelectionModel().getSelectedItem() != null ) {
+    public void onClickAddButton() {
+    if (ViewChoice.getSelectedToggle() == AppointmentsRadio) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/AddAppt.fxml"));
-            Parent root1 = fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root1));
-            stage.setTitle("Create Appointment");
-            stage.show();
-        } catch(Exception e) {
+            WindowMethods.switchWindow(addFXML, apptFXML, "New Appointment");
+        }catch (Exception e) {
             e.printStackTrace();
         }
     }
-    else if (customerTable.getSelectionModel().getSelectedItem() != null) {
+    else {
         try {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/AddCustomer.fxml"));
-        Parent root1 = fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setScene(new Scene(root1));
-        stage.setTitle("Create Customer");
-        stage.show();
-    }
-        catch(Exception e) {
-        e.printStackTrace();
-    }
+            WindowMethods.switchWindow(addFXML, customerFXML, "New Customer");
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     }
 
-    public void onClickModifyButton(ActionEvent actionEvent) {
+    public void onClickModifyButton() {
         if (ViewChoice.getSelectedToggle() == AppointmentsRadio && appTable.getSelectionModel().getSelectedItem() != null) {
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/ModAppt.fxml"));
-                Parent root1 = fxmlLoader.load();
-                Stage stage = new Stage();
-                stage.initModality(Modality.APPLICATION_MODAL);
-                stage.setScene(new Scene(root1));
-                stage.setTitle("Modify Appointment");
-                stage.show();
-            } catch(Exception e) {
+            try { WindowMethods.switchWindow(modFXML, apptFXML, "Modify Appointment");
+            }
+            catch(Exception e) {
                 e.printStackTrace();
             }
         }
-//        FXMLLoader loader = new FXMLLoader();
-//        loader.setLocation(getClass().getResource("/view/ModAppt.fxml"));
-//        loader.load();
-//        ModAppt MApptController = loader.getController();
-//        MapptController.sendProduct((Product) prodTable.getSelectionModel().getSelectedItem());
-//        Stage stage = new Stage();
-//        stage.initModality(Modality.APPLICATION_MODAL);
-//        stage.setScene(new Scene(root1));
-//        stage.setTitle("Modify Appointment");
-//        stage.show();
-//    } catch(Exception e) {
-//        e.printStackTrace();
-//    }
-//}
-
         else if (customerTable.getSelectionModel().getSelectedItem() != null) {
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/ModCustomer.fxml"));
-                Parent root1 = fxmlLoader.load();
-                Stage stage = new Stage();
-                stage.initModality(Modality.APPLICATION_MODAL);
-                stage.setScene(new Scene(root1));
-                stage.setTitle("Modify Customer");
-                stage.show();
+            try { WindowMethods.switchWindow(modFXML, apptFXML, "Modify Appointment");
             }
             catch(Exception e) {
                 e.printStackTrace();
@@ -229,15 +196,16 @@ public class Appointments implements Initializable {
         }
     }
 
-    public void onClickDeleteButton(ActionEvent actionEvent) {
+    public void onClickDeleteButton() {
         if (ViewChoice.getSelectedToggle() == AppointmentsRadio && appTable.getSelectionModel().getSelectedItem() != null) {
             try {AppointmentAccess.deleteAppointment((Appointment)appTable.getSelectionModel().getSelectedItem());
                 appTable.getItems().remove(appTable.getSelectionModel().getSelectedItem());
                 refreshAppSelection();
             } catch (Exception e) {
                 e.printStackTrace();
+                }
             }
-        }        else if (customerTable.getSelectionModel().getSelectedItem() != null) {
+        else if (customerTable.getSelectionModel().getSelectedItem() != null) {
             try {CustomerAccess.deleteCustomer((Customer) customerTable.getSelectionModel().getSelectedItem());
                 customerTable.getItems().remove(customerTable.getSelectionModel().getSelectedItem());
                 refreshCustSelection();

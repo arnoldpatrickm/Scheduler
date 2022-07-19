@@ -98,7 +98,7 @@
                 <SepiaTone />
             </effect>
         </ChoiceBox>
-        <Button layoutX="71.0" layoutY="347.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Save">
+        <Button fx:id="saveButton" layoutX="71.0" layoutY="347.0" mnemonicParsing="false" onAction="#onClickSaveButton" prefHeight="25.0" prefWidth="103.0" text="Save">
             <effect>
                 <SepiaTone />
             </effect>
@@ -106,7 +106,7 @@
                 <Font name="System Bold" size="12.0" />
             </font>
         </Button>
-        <Button layoutX="221.0" layoutY="347.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="103.0" text="Cancel">
+        <Button fx:id="cancelButton" layoutX="221.0" layoutY="347.0" mnemonicParsing="false" onAction="#onClickCancelButton" prefHeight="17.0" prefWidth="103.0" text="Cancel">
             <effect>
                 <SepiaTone />
             </effect>
