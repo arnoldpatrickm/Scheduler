@@ -1,7 +1,6 @@
 package Main;
 
 import Helper.JDBC;
-import Helper.SQLHelpers;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -28,7 +27,6 @@ public class Main extends Application {
         JDBC.openConnection();
         //********Important*********JavaFX Specific********From JDBC Webinar***********
         //openConnection() goes before launch. When it reaches launch(args) it pauses and does not continue to closeConnection() until the application is closed.
-        SQLHelpers.showAppointments();
         launch(args);
         JDBC.closeConnection();
     }

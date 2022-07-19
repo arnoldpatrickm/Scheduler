@@ -7,24 +7,6 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #98B4D4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Appointments">
    <children>
-      <TableView fx:id="appointmentsView" layoutX="14.0" layoutY="103.0" prefHeight="554.0" prefWidth="1169.0">
-        <columns>
-          <TableColumn prefWidth="69.0" text="Appt ID" />
-          <TableColumn minWidth="0.0" prefWidth="182.0" text="Title" />
-            <TableColumn prefWidth="101.0" text="Description" />
-            <TableColumn minWidth="8.0" prefWidth="135.0" text="Location" />
-            <TableColumn prefWidth="95.0" text="Type" />
-            <TableColumn prefWidth="102.0" text="Start Time" />
-            <TableColumn prefWidth="94.0" text="End Time" />
-            <TableColumn prefWidth="88.0" text="Start Date" />
-            <TableColumn prefWidth="103.0" text="End Date" />
-            <TableColumn prefWidth="104.0" text="Customer ID" />
-            <TableColumn prefWidth="95.0" text="User ID" />
-        </columns>
-         <effect>
-            <SepiaTone level="0.42" />
-         </effect>
-      </TableView>
       <Button layoutX="74.0" layoutY="700.0" mnemonicParsing="false" onAction="#toReports" prefHeight="25.0" prefWidth="112.0" style="-fx-background-color: #FFEEBE; -fx-background-color: #FFFED1;" text="Reports">
          <effect>
             <SepiaTone />
@@ -91,5 +73,14 @@
             <SepiaTone />
          </effect>
       </Label>
+      <TableView fx:id="appTable" layoutX="14.0" layoutY="75.0" prefHeight="599.0" prefWidth="1169.0">
+         <effect>
+            <SepiaTone />
+         </effect></TableView>
+      <TableView fx:id="customerTable" disable="true" layoutX="14.0" layoutY="75.0" opacity="0.0" prefHeight="599.0" prefWidth="1169.0">
+
+         <effect>
+            <SepiaTone />
+         </effect></TableView>
    </children>
 </AnchorPane>

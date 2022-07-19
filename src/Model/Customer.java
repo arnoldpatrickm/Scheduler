@@ -1,5 +1,8 @@
 package Model;
 
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+
 import java.time.LocalDateTime;
 
 public class Customer {
@@ -8,23 +11,14 @@ public class Customer {
     private String address;
     private String postalCode;
     private String phone;
-    private LocalDateTime createDate;
-    private String createdBy;
-    private LocalDateTime LastUpdate;
-    private String LastUpdatedBy;
     private int divisionID;
 
-    public Customer (int customerID, String customerName, String address, String postalCode, String phone, LocalDateTime createDate,
-                     String createdBy, LocalDateTime LastUpdate, String LastUpdatedBy, int divisionID) {
+    public Customer (int customerID, String customerName, String address, String postalCode, String phone, int divisionID) {
         this.customerID = customerID;
         this.customerName = customerName;
         this.address = address;
         this.postalCode = postalCode;
         this.phone = phone;
-        this.createDate = createDate;
-        this.createdBy = createdBy;
-        this.LastUpdate = LastUpdate;
-        this.LastUpdatedBy = LastUpdatedBy;
         this.divisionID = divisionID;
     }
 
@@ -68,38 +62,6 @@ public class Customer {
         this.phone = phone;
     }
 
-    public LocalDateTime getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(LocalDateTime createDate) {
-        this.createDate = createDate;
-    }
-
-    public String getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public LocalDateTime getLastUpdate() {
-        return LastUpdate;
-    }
-
-    public void setLastUpdate(LocalDateTime lastUpdate) {
-        LastUpdate = lastUpdate;
-    }
-
-    public String getLastUpdatedBy() {
-        return LastUpdatedBy;
-    }
-
-    public void setLastUpdatedBy(String lastUpdatedBy) {
-        LastUpdatedBy = lastUpdatedBy;
-    }
-
     public int getDivisionID() {
         return divisionID;
     }
@@ -108,3 +70,4 @@ public class Customer {
         this.divisionID = divisionID;
     }
 }
+

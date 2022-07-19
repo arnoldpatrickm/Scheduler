@@ -1,48 +1,30 @@
 package Model;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class Appointment {
-    private int appointment_ID;
+    private int appointmentID;
     private String title;
     private String description;
     private String location;
     private String type;
     private LocalDateTime start;
     private LocalDateTime end;
-    private LocalDateTime createDate;
-    private String createdBy;
-    private LocalDateTime lastUpdate;
     private int customerID;
     private int userID;
     private int contactID;
 
-    public Appointment(int appointment_iD, String title, String description, String location, String type, LocalDateTime start,
-                       LocalDateTime end, LocalDateTime createDate, String createdBy, LocalDateTime lastUpdate, int customerID,
-                       int userID, int contactID) {
-        this.appointment_ID = appointment_iD;
-        this.title = title;
-        this.description = description;
-        this.location = location;
-        this.type = type;
-        this.start = start;
-        this.end = end;
-        this.createDate = createDate;
-        this.createdBy = createdBy;
-        this.lastUpdate = lastUpdate;
-        this.customerID = customerID;
-        this.userID = userID;
-        this.contactID = contactID;
-
-
+    public int getAppointmentID() {
+        return appointmentID;
     }
 
-    public int getAppointment_ID() {
-        return appointment_ID;
-    }
-
-    public void setAppointment_ID(int appointment_ID) {
-        this.appointment_ID = appointment_ID;
+    public void setAppointmentID(int appointmentID) {
+        this.appointmentID = appointmentID;
     }
 
     public String getTitle() {
@@ -93,30 +75,6 @@ public class Appointment {
         this.end = end;
     }
 
-    public LocalDateTime getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(LocalDateTime createDate) {
-        this.createDate = createDate;
-    }
-
-    public String getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public LocalDateTime getLastUpdate() {
-        return lastUpdate;
-    }
-
-    public void setLastUpdate(LocalDateTime lastUpdate) {
-        this.lastUpdate = lastUpdate;
-    }
-
     public int getCustomerID() {
         return customerID;
     }
@@ -139,5 +97,22 @@ public class Appointment {
 
     public void setContactID(int contactID) {
         this.contactID = contactID;
+    }
+
+    public Appointment(int appointmentID, String title, String description, String location, String type, LocalDateTime start, LocalDateTime end, int customerID, int userID, int contactID) {
+        this.appointmentID = appointmentID;
+        this.title = title;
+        this.description = description;
+        this.location = location;
+        this.type = type;
+        this.start = start;
+        this.end = end;
+        this.customerID = customerID;
+        this.userID = userID;
+        this.contactID = contactID;
+
+
+
+
     }
 }
