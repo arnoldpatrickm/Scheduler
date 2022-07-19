@@ -12,6 +12,10 @@ public class Customer {
     private String postalCode;
     private String phone;
     private int divisionID;
+    private enum Country {
+        US, UK, Canada
+    }
+    private String divisionName;
 
     public Customer (int customerID, String customerName, String address, String postalCode, String phone, int divisionID) {
         this.customerID = customerID;
