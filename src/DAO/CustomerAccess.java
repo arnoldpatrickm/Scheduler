@@ -10,10 +10,15 @@ import javafx.collections.ObservableList;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 public class CustomerAccess {
 
+    public static int customerIndex = 0;
+
     public static ObservableList<Customer> getCustomers() throws SQLException {
+        System.out.println("****Adding Customers****");
         ObservableList<Customer> customerData = FXCollections.observableArrayList();
         String sql = "SELECT * FROM CUSTOMERS";
         PreparedStatement ps = JDBC.connection.prepareStatement(sql);
@@ -27,8 +32,12 @@ public class CustomerAccess {
             String phone = rs.getString("Phone");
             int divisionID = rs.getInt("Division_ID");
             customerData.add(new Customer(customerID, customerName, address, postalCode, phone, divisionID));
-            System.out.println(customerID + customerName + phone);
+            customerIndex = customerID;
         }
+
+        System.out.println(customerData.size() + " Customers have been added");
+        System.out.println((customerIndex + 1) + " is the current index to be added next.");
+        System.out.println("Complete");
         return customerData;
     }
     public static boolean deleteCustomer(Customer customer) throws SQLException {
@@ -46,5 +55,25 @@ public class CustomerAccess {
             return false;
         }
 
+    }
+    public static void addCustomer(Customer customer) {
+
+        try {
+            System.out.println("****Attempting to add new Customer****");
+            PreparedStatement st = JDBC.connection.prepareStatement(
+                    "INSERT INTO customers (Customer_Name, Address, Postal_Code, Phone, Division_ID)" +
+                            ("VALUES (?, ?, ?, ?, ?)"));
+            st.setString(1, customer.getCustomerName());
+            st.setString(2, customer.getAddress());
+            st.setString(3, customer.getPostalCode());
+            st.setString(4, customer.getPhone());
+            st.setInt(5, customer.getDivisionID());
+            st.executeUpdate();
+            System.out.println("****New Customer added****");
+
+        } catch (Exception e) {
+            System.out.println(e);
+            System.out.println("****Add Failed****");
+        }
     }
 }

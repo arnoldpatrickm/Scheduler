@@ -5,6 +5,8 @@ import DAO.CustomerAccess;
 import Helper.WindowMethods;
 import Model.Appointment;
 import Model.Customer;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -42,6 +44,8 @@ public class Appointments implements Initializable {
     final String loginFXML = "Login.fxml";
     final String appointmentsFXML = "Appointments.fxml";
     final String reportsFXML = "Reports.fxml";
+    public static ObservableList<Appointment> appointmentsOL = FXCollections.observableArrayList();
+    public static ObservableList<Customer> customerOL = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -84,7 +88,8 @@ public class Appointments implements Initializable {
         appTable.getColumns().addAll(columns);
         appTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         try {
-            appTable.setItems(AppointmentAccess.getAppointments());
+            appointmentsOL.addAll(AppointmentAccess.getAppointments());
+            appTable.setItems(appointmentsOL);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -97,16 +102,20 @@ public class Appointments implements Initializable {
         postalCode.setStyle("-fx-alignment: CENTER");
         TableColumn phone = new TableColumn("Phone Number");
         phone.setStyle("-fx-alignment: CENTER");
-        TableColumn divisionID = new TableColumn("Division ID");
-        divisionID.setStyle("-fx-alignment: CENTER");
-        TableColumn[] columns2 = {customerName, customerID2, address, postalCode, phone, divisionID};
+        TableColumn country = new TableColumn("Country");
+        country.setStyle("-fx-alignment: CENTER");
+        TableColumn region = new TableColumn("Region");
+        country.setStyle("-fx-alignment: CENTER");
+
+        TableColumn[] columns2 = { customerID2, customerName, address, postalCode, phone, country, region};
 
         customerID2.setCellValueFactory(new PropertyValueFactory<>("customerID"));
         customerName.setCellValueFactory(new PropertyValueFactory<>("customerName"));
         address.setCellValueFactory(new PropertyValueFactory<>("address"));
         postalCode.setCellValueFactory(new PropertyValueFactory<>("postalCode"));
         phone.setCellValueFactory(new PropertyValueFactory<>("phone"));
-        divisionID.setCellValueFactory(new PropertyValueFactory<>("divisionID"));
+        country.setCellValueFactory(new PropertyValueFactory<>("country"));
+        region.setCellValueFactory(new PropertyValueFactory<>("region"));
 
         customerTable.getColumns().addAll(columns2);
         customerTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);

@@ -1,5 +1,6 @@
 package Main;
 
+import DAO.DivisionAccess;
 import Helper.JDBC;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -25,6 +26,7 @@ public class Main extends Application {
     public static void main(String[] args) throws SQLException {
 
         JDBC.openConnection();
+        DivisionAccess.getDivisions();
         //********Important*********JavaFX Specific********From JDBC Webinar***********
         //openConnection() goes before launch. When it reaches launch(args) it pauses and does not continue to closeConnection() until the application is closed.
         launch(args);

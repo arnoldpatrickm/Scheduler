@@ -1,6 +1,10 @@
 package Controller;
 
+import DAO.AppointmentAccess;
+import DAO.CustomerAccess;
 import Helper.WindowMethods;
+import Model.Appointment;
+import Model.Customer;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -44,17 +48,23 @@ public class AddCustomer implements Initializable{
     @FXML
     private void onClickSaveButton() {
 
-        int customerID = Integer.parseInt(customerIDBox.getText());
-        String customerName = customerNameBox.getText();
-        String customerAddress = customerAddressBox.getText();
-        String customerZip = customerZipBox.getText();
-        String customerPhone = customerPhoneBox.getText();
-        String customerCountry = customerCountryComboBox.getSelectionModel().toString();
-        String customerRegion = customerRegionComboBox.getSelectionModel().toString();
+            int customerID = Integer.parseInt(customerIDBox.getText());
+            String customerName = customerNameBox.getText();
+            String customerAddress = customerAddressBox.getText();
+            String customerZip = customerZipBox.getText();
+            String customerPhone = customerPhoneBox.getText();
+            String customerCountry = customerCountryComboBox.getSelectionModel().toString();
+            String customerRegion = customerRegionComboBox.getSelectionModel().toString();
 
+            System.out.println(AppointmentAccess.appointmentIndex);
+            CustomerAccess.customerIndex++;
 
-        WindowMethods.closeWindow(saveButton);
-    }
-
-
+            int userID = 1;
+            int contactID = 1;
+            Customer customer = new Customer(customerID, customerName, customerAddress, customerZip, customerPhone, customerCountry, customerRegion);
+            System.out.println(CustomerAccess.customerIndex);
+            CustomerAccess.addCustomer(customer);
+            Appointments.customerOL.add(customer);
+            WindowMethods.closeWindow(saveButton);
+        }
 }

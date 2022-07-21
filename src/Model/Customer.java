@@ -1,5 +1,6 @@
 package Model;
 
+import DAL.DivisionLayer;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
@@ -11,12 +12,20 @@ public class Customer {
     private String address;
     private String postalCode;
     private String phone;
+    private String country;
+    private String region;
     private int divisionID;
-    private enum Country {
-        US, UK, Canada
-    }
-    private String divisionName;
 
+    public Customer(int customerID, String customerName, String customerAddress, String customerZip, String customerPhone, String customerCountry, String customerRegion) {
+        this.customerID = customerID;
+        this.customerName = customerName;
+        address = customerAddress;
+        postalCode = customerZip;
+        phone = customerPhone;
+        country = customerCountry;
+        region = customerRegion;
+
+    }
     public Customer (int customerID, String customerName, String address, String postalCode, String phone, int divisionID) {
         this.customerID = customerID;
         this.customerName = customerName;
@@ -24,6 +33,32 @@ public class Customer {
         this.postalCode = postalCode;
         this.phone = phone;
         this.divisionID = divisionID;
+    }
+
+    public String getCountry() {
+        int countryNumber = DivisionLayer.whichDivision(divisionID).getCountryCode();
+
+        if (countryNumber == 1) {
+            return "United States";
+        }
+        else if (countryNumber == 2) {
+            return "United Kingdom";
+        }
+        else {
+            return "Canada";
+        }
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getRegion() {
+        return DivisionLayer.whichDivision(divisionID).getDivisionName();
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
     }
 
     public int getCustomerID() {

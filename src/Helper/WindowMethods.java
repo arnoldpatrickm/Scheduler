@@ -1,12 +1,12 @@
 package Helper;
 
 import Controller.Appointments;
-import javafx.event.Event;
+import Model.Appointment;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -19,6 +19,11 @@ import javafx.stage.Stage;
         final static String loginFXML = "Login.fxml";
         final static String appointmentsFXML = "Appointments.fxml";
         final static String reportsFXML = "Reports.fxml";
+
+//        public static void refreshTable(TableView<Appointment> table) {
+//            FXMLLoader fxmlLoader = new FXMLLoader(Appointments.class.getResource("/view/Appointments.fxml"));
+//            fxmlLoader.getController().getClass().
+//        }
 
         public static void closeWindow(Button button) {
             Stage stage = (Stage) button.getScene().getWindow();

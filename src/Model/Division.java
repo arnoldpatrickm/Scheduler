@@ -1,9 +1,30 @@
 package Model;
 
+import DAL.DivisionLayer;
+import DAO.DivisionAccess;
+
 public class Division {
     private int divisionID;
     private String divisionName;
     private int countryCode;
+
+    public Division (int divisionID, String divisionName, int countryCode){
+        this.divisionID = divisionID;
+        this.divisionName = divisionName;
+        this.countryCode = countryCode;
+    }
+    public Division () {
+
+    }
+
+//    public String getName(String divName) {
+//        for ()
+//        DivisionLayer.allDivisions
+//    }
+
+//    public String getDivision(int divID) {
+//
+//    }
 
     public int getDivisionID() {
         return divisionID;

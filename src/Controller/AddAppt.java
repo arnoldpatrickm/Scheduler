@@ -1,6 +1,8 @@
 package Controller;
 
+import DAO.AppointmentAccess;
 import Helper.WindowMethods;
+import Model.Appointment;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -47,11 +49,12 @@ public class AddAppt implements Initializable {
 //    private String title;
 //    private String description;
 //    private String location;
-
+    private int currentIndex = AppointmentAccess.appointmentIndex;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        appIDBox.setText(String.valueOf(currentIndex + 1));
     }
 
     @FXML
@@ -59,7 +62,25 @@ public class AddAppt implements Initializable {
         WindowMethods.closeWindow(cancelButton);
     }
     @FXML
-    private void onClickSaveButton(){
+    private void onClickSaveButton()
+    {
+        String title = titleBox.getText();
+        String description = descriptionBox.getText();
+        String location = locationBox.getText();
+        String type = typeBox.getText();
+//        int customerID = Integer.parseInt(customerBox.getItems().toString());
+//        int userID = Integer.parseInt(userBox.getItems().toString());
+//        int contactID = Integer.parseInt(contactBox.getItems().toString());
+        System.out.println(AppointmentAccess.appointmentIndex);
+        AppointmentAccess.appointmentIndex++;
+        int appointmentIndex = AppointmentAccess.appointmentIndex;
+        int customerID = 1;
+        int userID = 1;
+        int contactID = 1;
+        Appointment appointment = new Appointment(appointmentIndex, title, description, location, type, customerID, userID, contactID);
+        System.out.println(AppointmentAccess.appointmentIndex);
+        AppointmentAccess.addAppointment(appointment);
+        Appointments.appointmentsOL.add(appointment);
         WindowMethods.closeWindow(saveButton);
     }
 }
