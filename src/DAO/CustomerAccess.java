@@ -1,6 +1,7 @@
 package DAO;
 
 import Controller.Appointments;
+import DAL.CustomerLayer;
 import Helper.JDBC;
 import Model.Appointment;
 import Model.Customer;
@@ -19,7 +20,7 @@ public class CustomerAccess {
 
     public static ObservableList<Customer> getCustomers() throws SQLException {
         System.out.println("****Adding Customers****");
-        ObservableList<Customer> customerData = FXCollections.observableArrayList();
+        ObservableList<Customer> cData = FXCollections.observableArrayList();
         String sql = "SELECT * FROM CUSTOMERS";
         PreparedStatement ps = JDBC.connection.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
@@ -31,14 +32,16 @@ public class CustomerAccess {
             String postalCode = rs.getString("Postal_Code");
             String phone = rs.getString("Phone");
             int divisionID = rs.getInt("Division_ID");
-            customerData.add(new Customer(customerID, customerName, address, postalCode, phone, divisionID));
-            customerIndex = customerID;
+            cData.add(new Customer(customerID, customerName, address, postalCode, phone, divisionID));
+
+            if (customerIndex < customerID){customerIndex = customerID;}
         }
 
-        System.out.println(customerData.size() + " Customers have been added");
+        System.out.println(cData.size() + " Customers have been added");
         System.out.println((customerIndex + 1) + " is the current index to be added next.");
         System.out.println("Complete");
-        return customerData;
+        CustomerLayer.customerData = cData;
+        return cData;
     }
     public static boolean deleteCustomer(Customer customer) throws SQLException {
         int custID = customer.getCustomerID();

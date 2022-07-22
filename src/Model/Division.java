@@ -17,14 +17,6 @@ public class Division {
 
     }
 
-//    public String getName(String divName) {
-//        for ()
-//        DivisionLayer.allDivisions
-//    }
-
-//    public String getDivision(int divID) {
-//
-//    }
 
     public int getDivisionID() {
         return divisionID;
